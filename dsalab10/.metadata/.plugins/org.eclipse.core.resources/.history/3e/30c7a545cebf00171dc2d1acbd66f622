@@ -1,0 +1,34 @@
+package graphs;
+
+import java.util.LinkedList;
+import java.io.*;
+
+
+public class BFS 
+{
+	private int V;
+	private 
+	
+	BFS(int v)
+	{
+		V=v;
+		LinkedList <Integer>  adj[]=new LinkedList[v];
+		for(int i=0;i<v;i++)
+		{
+			adj[i]= new LinkedList();
+		}
+	}
+	
+	void addEdge(int v , int w)
+	{
+		adj[v].add(w);
+	}
+	
+	void bfs(int s)
+	{
+		boolean visited[]= new boolean[V];
+		LinkedList <Integer> queue = new LinkedList <Integer>();
+		
+	}
+	
+}

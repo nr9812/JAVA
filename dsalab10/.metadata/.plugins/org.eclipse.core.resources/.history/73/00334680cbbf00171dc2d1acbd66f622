@@ -1,0 +1,17 @@
+package graphs;
+
+import java.util.*;
+import java.io.*;
+
+
+public class BFS 
+{
+	private int V;
+	private 
+	
+	BFS(int v)
+	{
+		V=v;
+		LinkedList<Integer>adj[]=new LinkedList();
+	}
+}

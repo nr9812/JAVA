@@ -1,0 +1,103 @@
+package bst;
+
+public class BST 
+{
+	public Node root;
+	public Node temp;
+	public Node parent;
+	
+	BST()
+	{
+		root=null;
+	}
+	
+	public void search (Node root1,int x)
+	{
+		temp=root1	;
+		if (temp==null||temp.data==x)
+		{
+				System.out.println ("Element "+x+" is found");
+		}
+		else if (x<temp.data)
+		{	
+			search (temp.left,x);
+		}
+		else
+		{
+			search(temp.right,x);
+		}
+		
+	}		
+	
+	public void insert(int x)
+	{
+		Node newnode = new Node();
+		newnode.data=x;
+		
+		if (root==null)
+		{
+			root=newnode;
+			return;
+		}
+		temp=root;
+		parent = null;
+		while (true)
+		{
+			parent = temp;
+			if (x<temp.data)
+			{
+				temp=temp.left;
+				if (temp==null)
+				{
+					parent.left = newnode;
+					return;
+				}
+			}
+			else
+			{
+				temp=temp.right;
+				{
+					if (temp==null)
+					{
+						parent.right= newnode;
+						return;
+					}
+				}
+			}
+			
+		}	
+	}
+	
+	public void displayInorder(Node root)
+	{
+		if (root!=null)
+		{
+			displayInorder(root.left);
+			System.out.print(+root.data+" ");
+			displayInorder(root.right);
+		}
+	}
+	
+	public void displayPreorder(Node root)
+	{
+		if (root!=null)
+		{
+			System.out.print(+root.data+" ");
+			displayPreorder (root.left);
+			displayPreorder (root.right);	
+			
+		}
+	}
+	
+	public void displayPostOrder(Node root)
+	{
+		if (root!=null)
+		{
+			displayPostOrder(root.left);
+			displayPostOrder (root.right);
+			System.out.print(+root.data+" ");
+			
+		}
+	}
+	
+}

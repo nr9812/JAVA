@@ -1,0 +1,65 @@
+package graphs;
+
+import java.util.*;
+import java.io.*;
+
+
+public class BFS 
+{
+	private int V;
+	private LinkedList <Integer>  adj[];
+	
+	BFS(int v)
+	{
+		V=v;
+		
+		for(int i=0;i<v;i++)
+		{
+			adj[i]= new LinkedList();
+		}
+	}
+	
+	void addEdge(int v , int w)
+	{
+		adj[v].add(w);
+	}
+	
+	void bfs(int s)
+	{
+		boolean visited[]= new boolean[V];
+		LinkedList <Integer> queue = new LinkedList <Integer>();
+		visited[s]=true;
+		queue.add(s);
+		while (queue.size()!=0)
+		{
+			s= queue.poll();
+			System.out.print (s+" ");
+			Iterator< Integer> i = 	adj[s].listIterator();
+			while (i.hasNext())
+			{
+				int n= i.next();
+				if (!visited[n])
+				{
+					visited[n]=true;
+					queue.add(n);
+					
+				}
+			}
+		}
+	}
+	
+	public static void main (String [] args)
+	{
+		BFS ob1 = new BFS(4);
+		ob1.addEdge(0, 1);
+		ob1.addEdge(0, 2);
+		ob1.addEdge(1, 2);
+		ob1.addEdge(2, 0);
+		ob1.addEdge(2, 3);
+		ob1.addEdge(3, 3);
+		
+		System.out.println ("Following is the BFS starting from vertex 2");
+		ob1.bfs(2);
+		
+	}
+}
